@@ -11,49 +11,45 @@
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        // ListNode* temp = head;
-        // ListNode* pre = head;
-        // while (pre->val==val) {
-        //     head = head -> next;
-        //     pre = pre -> next;
-        // }
-        // int c=0;
-        // temp= head;
-        // pre = head;
-        // while (temp) {
-        //     if (c==0) {
-        //        pre = head; 
-        //     }
-        //     if (temp->val==val) {
-        //         if(temp->next = NULL) {
-        //             pre->next = NULL;
-        //         }
-        //         else {
-        //             pre -> next = temp->next;
-                  
-        //         }
-        //     }
-        // }
-        // return head;
-
+        ListNode* temp = head;
         ListNode* pre = NULL;
-        ListNode* cur = head;
-        while (cur) {
-            if(cur ->val == val) {
-                if(pre == NULL) {
-                    cur = cur -> next;
-                    head = head -> next;
-                }
-                else {
-                    pre->next = cur -> next ;
-                    cur = cur -> next;
-                }
+        while (temp != NULL and temp->val==val) {
+            head = head -> next;
+            temp= temp -> next;
+        }
+        int c=0;
+        temp= head;
+        pre = NULL;
+        while (temp) {
+            if (temp->val==val) {
+                pre -> next = temp -> next;
+                temp = temp -> next;
             }
             else {
-                pre = cur ;
-                cur = cur -> next;
+                pre = temp;
+                temp = temp -> next;
             }
         }
         return head;
+
+        // ListNode* pre = NULL;
+        // ListNode* cur = head;
+        // while (cur) {
+        //     if(cur ->val == val) {
+        //         if(pre == NULL) {
+        //             cur = cur -> next;
+        //             head = head -> next;
+        //         }
+        //         else {
+        //             pre->next = cur -> next ;
+        //             cur = cur -> next;
+        //         }
+        //     }
+        //     else {
+        //         pre = cur ;
+        //         cur = cur -> next;
+        //     }
+        // }
+        // return head;
     }
 };
