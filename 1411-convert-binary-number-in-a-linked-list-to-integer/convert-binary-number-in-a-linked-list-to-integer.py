@@ -9,14 +9,15 @@ class Solution(object):
         :type head: ListNode
         :rtype: int
         """
-        a=[]
-        temp = head;
-        while (temp) :
-            a.append(temp.val)
-            temp=temp.next
-        s=0 
-        n=len(a)-1
-        for i in a:
-            s=s+(2**n)*i
-            n=n-1
-        return s
+        result = str(head.val)
+        while head.next:
+            head = head.next
+            result += str(head.val)
+        return int(result, 2)
+        
+
+    
+       
+
+
+        
