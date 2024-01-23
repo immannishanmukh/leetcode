@@ -20,9 +20,7 @@ public:
         if (k==0 or k%c==0 or k==c) return head;
 
         if (c<k) {
-            while (c<k) {
-                k=k-c;
-            }
+            k=k%c;
         }
         for (int i =0;i<k;i++) {
             prev = NULL;
