@@ -15,10 +15,6 @@ public:
                  int x=abs(s.top()-i);
                  a[i]=x;
              }
-             else {
-                 a[i] =0;
-                 //s.push(i);
-             }
              s.push(i);
          }
         return a;
