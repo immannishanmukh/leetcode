@@ -7,8 +7,8 @@ class Solution(object):
         st = []
         i=0;
         if (len(s)%2!=0 or s[i] == ')' or s[i]=='}' or s[i]==']'): return False
-
-        while (i<len(s)):
+        n = len(s)
+        while (i<n):
             if (s[i] == '(' or s[i]=='{' or s[i]=='['):
                 st.append(s[i])
             else:
