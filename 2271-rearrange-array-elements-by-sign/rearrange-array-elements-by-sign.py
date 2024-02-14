@@ -1,16 +1,18 @@
 class Solution(object):
-    def rearrangeArray(self, a):
+    def rearrangeArray(self, nums):
         """
         :type nums: List[int]
         :rtype: List[int]
         """
-        p = []
-        n = []
-        for i in a :
-            if ( i < 0 ) : n.append (i)
-            else : p.append(i)
-        a = []
-        for i in range (len(p)):
-            a.append(p[i])
-            a.append(n[i])
-        return a
+        n=len(nums)
+        ans=[-1]*n
+        posind=0
+        negind=1
+        for i in nums:
+            if i > 0:
+                ans[posind]=i
+                posind+=2
+            else:
+                ans[negind]=i
+                negind+=2
+        return ans
