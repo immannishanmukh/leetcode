@@ -1,3 +1,11 @@
-SELECT w1.id
-FROM Weather w1, Weather w2
-WHERE DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature > w2.temperature;
+select id from(
+select 
+	id, 
+	temperature,
+    recordDate,
+    lag(recordDate) over (order by recordDate) as previous_day_date,
+    lag(temperature) over (order by recordDate) as previous_day_temp 
+    from Weather
+) as t
+where t.temperature > t.previous_day_temp
+and date_sub(recordDate, interval 1 day) = t.previous_day_date;
